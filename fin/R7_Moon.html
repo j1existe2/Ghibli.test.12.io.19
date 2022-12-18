@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width;initial-scale=1.0;minimum-scale=0.5;maximum-scale=2.0;user-scalable=yes"/>
+    <meta charset="UTF-8">
+    <title>Ghibli_Result7</title>
+    <link rel="stylesheet" type="text/css" href="css/csstyle.css">
+</head>
+
+<style>
+  
+    .title {
+        font-size:1.3rem;    
+        margin-left: 2%;
+        margin-top: 0%;
+        margin-bottom: 1%;
+    }
+
+    .motion{
+        position: fixed;
+        top: 10%;
+        margin-top: 1%;
+        margin-left: 25%;
+        margin-bottom: 1%;
+        height:1%;
+        z-index: 99;    
+    }
+    
+    .btn{
+        font-size:1.2rem;
+        padding-top: 0%;
+        padding-left: 3%;
+        }
+    
+    #btn2{
+        visibility: hidden;
+    }
+    
+    
+    .result{
+    position: fixed;
+    visibility: hidden;
+    font-size:110%;
+    top: 30%;
+    left: 40%;
+    margin-top: 5%;
+    margin-right: 20%;
+    z-index: 99;
+    }
+    
+    #pic{
+    position: fixed;
+    visibility: hidden;
+    top: 40%;
+    left: 10%;
+    z-index: 99;
+    width: 28%;
+    }
+    
+    @media (min-width: 2560px){
+       .title {
+        font-size:1.2rem;    
+        margin-left: 2%;
+        margin-top: 0%;
+        margin-bottom: 1%;
+      }
+        
+        .motion{
+        position: fixed;
+        top: 10%;
+        margin-top: 1%;
+        margin-left: 25%;
+        margin-bottom: 1%;
+        height:1%;
+        z-index: 99;    
+    }
+        .btn{
+        font-size:1rem;
+        padding-top: 0%;
+        padding-left: 3%;
+        }
+        .result{
+        position: fixed;
+        visibility: hidden;
+        font-size:1rem;
+        top: 30%;
+        left: 40%;
+        margin-top: 5%;
+        margin-right: 20%;
+        z-index: 99;
+    }
+    }
+    @media (max-width:480px){
+      .title {
+        font-size:0.5rem;
+        top: 10%;
+        margin-left: 2%;
+        margin-top: 0%;
+        margin-bottom: 1%;
+      }
+        .btn{
+        font-size:0.3rem;
+        padding-top: 0%;
+        padding-left: 3%;
+        }
+        
+       .result{
+        position: fixed;
+        visibility: hidden;
+        font-size:0.5rem;
+        top: 12%;
+        left: 40%;
+        margin-top: 8%;
+        margin-right: 10%;
+        z-index: 99;
+    }
+        .motion{
+        position: fixed;
+        top: 10%;
+        margin-top: 1%;
+        margin-left: 25%;
+        margin-bottom: 1%;
+        height:1%;
+        z-index: 99;    
+    }
+        }
+    
+body { 
+   opacity: 100;
+   transition: opacity .5s;
+} 
+    #photo{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 190vw;
+    height:190vh;
+    z-index: -999;
+    }
+
+</style>
+<script>
+window.transitionToPage = function(href) {
+    document.querySelector('body').style.opacity = 0
+    setTimeout(function() { 
+        window.location.href = href
+    }, 500)
+}
+
+
+    function show(){
+        document.getElementById("btn1").style.visibility="hidden";
+        document.getElementById("btn2").style.visibility="visible";
+        document.getElementById("titre").style.visibility="visible";
+        document.getElementById("words").style.visibility="visible";
+        document.getElementById("pic").style.visibility="visible";
+    }
+    
+    let n=-1;
+    let N=12;
+    let name=new Array(N);
+    for(let i=0; i < N; i++){
+        name[i]="c"+i.toString();
+    }
+    
+    function next(){
+        back();
+        n=(n+1)%12;
+        let idx=n;
+        document.getElementById(name[idx]).style.visibility="visible";       
+    }
+
+    function back(){
+        document.getElementById("c0").style.visibility="hidden";
+        document.getElementById("c1").style.visibility="hidden";
+        document.getElementById("c2").style.visibility="hidden";
+        document.getElementById("c3").style.visibility="hidden";
+        document.getElementById("c4").style.visibility="hidden";
+        document.getElementById("c5").style.visibility="hidden";
+        document.getElementById("c6").style.visibility="hidden";
+        document.getElementById("c7").style.visibility="hidden";
+        document.getElementById("c8").style.visibility="hidden";
+        document.getElementById("c9").style.visibility="hidden";
+        document.getElementById("c10").style.visibility="hidden";
+        document.getElementById("c11").style.visibility="hidden";
+    }
+    
+    function run(){
+        setInterval(next,500);
+    }
+
+    function play_music(){
+        document.getElementById("bgm").play();
+    }
+    
+    function play_sound(){
+    document.getElementById("sound").play();
+}
+
+window.onload=run();
+</script>
+<body>
+    <div class="title">
+        <font style="color:#E6E6FA;font-size: 200%">你是吉卜力動畫裡的...</font>
+
+        </div>
+    
+    <div class="audio">
+    <audio id="sound">
+        <source src="sound/crrect_answer1.mp3" type="audio/mpeg">
+    </audio>
+       <audio id="bgm" loop><source src="sound/M_My%20Neighbor%20Totoro.mp3" type="audio/mpeg">
+    </audio>
+    </div>
+    <div class="motion">
+        <img id="c0" src="images/G0_robot.png" width="5%">
+        <img id="c1" src="images/G3_black.png" width="4%" >
+        <img id="c2" src="images/G4_Calcifer.png" width="6%">
+        <img id="c3" src="images/G5_cat%20baron.png" width="7%">
+        <img id="c4" src="images/G6_Chichi.png" width="7%" >
+        <img id="c5" src="images/G7_Chihiro.png" width="8%">
+        <img id="c6" src="images/G8_Hatter.png" width="8%" >
+        <img id="c7" src="images/G9_Her.png" width="8%">
+        <img id="c8" src="images/G10_Hita.png" width="7%">
+        <img id="c9" src="images/G11_Ponyo.png" width="8%">
+        <img id="c10" src="images/G13_Toto.png" width="6%" >
+        <img id="c11" src="images/G14_Whitedragon.png" width="8%">
+    </div>
+    <div class="btn">
+    <button class="btn1" id="btn1" onclick="play_music();show()" style= "color: #537697; 
+      background:#006374; border: 0.125em solid white; border-radius: 0.5em; color:	#B0E0E6;padding:1em 2em;
+      text-align: center;
+      display: inline-block;
+      font-size: 80%;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; 
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;">查看結果</button><br>
+      <button class="btn2" id="btn2" onclick="transitionToPage('main_page.html');play_sound()" style= "
+      background-color:#B0E0E6; border: 0.125em solid white; border-radius: 0.5em; color:#006374;padding:1em 2em;
+      text-align: center;
+      display: inline-block;
+      font-size: 80%;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; 
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;">再測一次</button>
+     </div>
+    <div class="result">
+        <p id="titre" style="color:#FFFF4D;font-size: 200%">《龍貓》小月</p>
+        <p id="words" style="color:#FFFF4D;font-size: 150%">
+            你的個性相當謹慎穩重，與小月身為姐姐時帶有責任感的特質十分相似，
+            待人處事冷靜卻又不失溫度。在生活中碰到困難時，
+            習慣以認真的態度面對，並能按部就班的予以解決。
+            比起空想的規劃，你更喜歡實際的行動；喜歡實際的結果呈現。
+            在人際關係方面，你重視家人與親密好友，是個可靠的好夥伴。
+        </p>
+    <div class="pic">
+    <img id="pic" src="images/C7_Moon.png">
+    </div>
+    </div>
+    <div class="bg">
+        <img id="photo" max-width="100%" src="images/bg6.jpg">
+    </div>
+    </body>

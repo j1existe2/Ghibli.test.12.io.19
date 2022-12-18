@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <title>你是哪個吉卜力角色?</title>
+</head>
+
+<style>
+    .title {
+        font-size:100%;
+        top: 60%;
+        left: 0%;
+        padding-top: 10%;
+        
+    }
+    .btn{
+        top: 30%;
+        left: 0%;
+        padding-top: 3%; 
+        }
+    
+    @media (min-width: 2560px){
+       .title {
+        font-size: 1rem;
+        top: 60%;
+        left: 0%;
+        padding-top: 10%;  
+      }       
+    }
+    @media (max-width:480px) {
+      .title {
+        font-size: 0.5rem;
+        top: 60%;
+        left: 0%;
+        padding-top: 10%;
+      }
+    }
+    
+#bg {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100vw;
+    height:100vh;
+    z-index: -999;
+    }
+    
+.audio {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+    }
+
+body { 
+   opacity: 0;
+   transition: opacity .5s;
+    
+}
+    
+
+    
+</style>
+<script>
+window.transitionToPage = function(href) {
+    document.querySelector('body').style.opacity = 0
+    setTimeout(function() { 
+        window.location.href = href
+    }, 500)
+}
+
+document.addEventListener('DOMContentLoaded', function(event) {
+    document.querySelector('body').style.opacity = 1
+})
+ 
+function play_music(){
+    document.getElementById("bg1").play();
+}
+
+function play_sound(){
+    document.getElementById("sound").play();
+}
+   
+window.onload=play_music();
+
+</script>
+<body>
+    <div class="bg">
+        <img id="bg" src="images/bg3.jpg">
+    </div>
+    
+    <div class= "audio">
+        <audio controls id="bg1">
+        <source src="sound/bg1.mp3" type="audio/mpeg">
+    </audio>
+    </div>
+    
+    <div class= "audio1">
+        <audio autoplay id="sound">
+        <source src="sound/button03a.mp3" type="audio/mpeg">
+    </audio>
+    </div>
+    
+    <div class="title"  id="stitle" style= "text-align: center; vertical-align: middle;">
+        <font align= "center" style="color:#FFE4E1;font-family:inherit;font-size:300%">測試你是哪個吉卜力角色?</font>
+        <p align= "center">
+        <h3 align= "center" style="font-size:200%;font-family:inherit;color:#FFE4E1;background-color:#CD5C5C;background-size:contain;">請選出最符合你的答案</h3>
+        
+    <div class="btn">
+     <button id="btn" onclick="transitionToPage('Q1.html');play_sound()" style= "color: #0099CC; 
+      background: #537697; border: 2px solid white; border-radius: 6px; color: white; padding: 16px 32px;
+      text-align: center;
+      display: inline-block;
+      font-size: 100%;
+      -webkit-transition-duration: 0.4s; 
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;">開始測驗</button>        
+        </div>
+    </div>
+    </body>
+</html>
